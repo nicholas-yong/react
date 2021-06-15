@@ -1,0 +1,14 @@
+.image-list
+{
+    display: grid;
+    /* Auto-Fill tells you how many columns it will create, and the second arguement (minMax) gives you the size of each column */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 0 10px;
+    grid-auto-rows: 10px;
+    /* We need to determine the individual grid-row-end value for each image. */
+}
+
+.image-list img
+{
+    width: 250px;
+}
