@@ -4,6 +4,8 @@ import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 import useVideos from '../hooks/useVideos';
 
+//We might need a VM if we are running some node js API. However, since we are not running any code and just returning JSX, we do not need to actually run it onto a VM.
+
 const App = () =>
 {
     //The piece of state is defined inside useVideos still counts as a piece of state in this functional component, hence it is still re-rendered.
