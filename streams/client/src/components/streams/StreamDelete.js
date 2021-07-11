@@ -1,8 +1,8 @@
 import React from 'react'
 
-const StreamCreate = () =>
+const StreamDelete = () =>
 {
-    return <div>StreamCreate</div>
+    return <div>StreamDelete</div>
 };
 
-export default StreamCreate;
+export default StreamDelete;
