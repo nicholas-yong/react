@@ -6,6 +6,7 @@ import StreamCreate from './streams/StreamCreate'
 import StreamList from './streams/StreamList';
 import StreamShow from './streams/StreamShow';
 import Header from './Header'
+import GoogleAuth from './GoogleAuth';
 
 const App = () =>
 {
@@ -21,6 +22,7 @@ const App = () =>
                     <Route path = "/streams/show" exact component = {StreamShow}/>
                 </div>
             </BrowserRouter>
+            <GoogleAuth/>
         </div>
     );
 };
