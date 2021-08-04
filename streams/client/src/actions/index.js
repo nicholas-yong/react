@@ -7,8 +7,7 @@ import { SIGN_IN,
     DELETE_STREAM
  } from "./types";
 import { axiosStream } from "../apis/streams";
-import StreamShow from "../components/streams/StreamShow";
-import axios from "axios";
+import history from "../history";
 
 export const signIn = userId =>{
     return{
@@ -23,11 +22,13 @@ export const signOut = () =>{
     };
 };
 
-export const createStream = formValues => async dispatch =>
+export const createStream = formValues => async ( dispatch, getState ) =>
 {
-    const response = axiosStream.post('/streams', formValues);
+    const { userId } = getState().auth
+    const response = await axiosStream.post('/streams', { ...formValues, userId } );
 
-    dispatch({ type: CREATE_STREAM, payload: response.data})
+    dispatch({ type: CREATE_STREAM, payload: response.data })
+    history.push('/')
 }
 
 export const fetchStreams = () => async dispatch =>
@@ -45,8 +46,9 @@ export const fetchStream = (id) => async dispatch =>
 
 export const editStream = (id, formValues) => async dispatch =>
 {
-    const response = await axiosStream.put(`/streams/${id}`, formValues);
+    const response = await axiosStream.patch(`/streams/${id}`, formValues);
     dispatch({ type: EDIT_STREAM, payload: response.data})
+    history.push('/')
 }
 
 export const deleteStream = (id) => async dispatch =>
