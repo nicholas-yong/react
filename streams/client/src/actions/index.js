@@ -28,7 +28,7 @@ export const createStream = formValues => async ( dispatch, getState ) =>
     const response = await axiosStream.post('/streams', { ...formValues, userId } );
 
     dispatch({ type: CREATE_STREAM, payload: response.data })
-    history.push('/')
+   history.push('/')
 }
 
 export const fetchStreams = () => async dispatch =>
@@ -55,4 +55,5 @@ export const deleteStream = (id) => async dispatch =>
 {
     await axiosStream.delete(`/streams/${id}`)
     dispatch({ type: DELETE_STREAM, payload: id})
+    history.push('/')
 }
